@@ -8,7 +8,7 @@ const navItems = [
   { href: '/', label: 'Home', icon: Home },
   { href: '/grooming', label: 'Groom', icon: Scissors },
   // { href: '/boarding', label: 'Board', icon: BedDouble },  // Coming soon — after construction
-  { href: '/pet-vault', label: 'Pet Vault', icon: ShieldCheck },
+  { href: '/pet-vault', label: 'Vault', icon: ShieldCheck },
   { href: '/contact', label: 'Contact', icon: Phone },
 ];
 
@@ -16,37 +16,41 @@ export default function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="glass-nav fixed bottom-0 left-0 right-0 z-50 md:hidden" id="bottom-nav">
-      <div className="flex items-center justify-around px-2 py-2">
-        {navItems.map((item) => {
-          const isActive = pathname === item.href;
-          const Icon = item.icon;
+    <nav className="fixed bottom-0 left-0 right-0 z-50 md:hidden" id="bottom-nav">
+      {/* Gradient fade above nav */}
+      <div className="h-6 bg-gradient-to-t from-[#1a1028] to-transparent pointer-events-none" />
+      <div className="bg-[#1a1028]/90 backdrop-blur-2xl border-t border-white/[0.06] pb-[env(safe-area-inset-bottom)]">
+        <div className="flex items-center justify-around px-1 py-1.5">
+          {navItems.map((item) => {
+            const isActive = pathname === item.href;
+            const Icon = item.icon;
 
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`flex flex-col items-center gap-1 rounded-2xl px-3 py-2 transition-all duration-300 ${
-                isActive
-                  ? 'bg-accent-amber/15 text-accent-amber'
-                  : 'text-text-secondary hover:text-text-primary'
-              }`}
-              id={`nav-${item.label.toLowerCase().replace(/\s/g, '-')}`}
-            >
-              <Icon
-                size={22}
-                strokeWidth={isActive ? 2.5 : 1.8}
-                className={`transition-all duration-300 ${isActive ? 'drop-shadow-[0_0_8px_hsl(36_95%_55%_/_0.5)]' : ''}`}
-              />
-              <span className={`text-[10px] font-semibold tracking-wide ${isActive ? 'opacity-100' : 'opacity-70'}`}>
-                {item.label}
-              </span>
-              {isActive && (
-                <span className="absolute -bottom-0 h-[3px] w-6 rounded-full bg-accent-amber shadow-[0_0_8px_hsl(36_95%_55%_/_0.6)]" />
-              )}
-            </Link>
-          );
-        })}
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`relative flex flex-col items-center gap-0.5 rounded-2xl px-4 py-2 transition-all duration-300 ${
+                  isActive
+                    ? 'text-accent-amber'
+                    : 'text-text-muted active:scale-95'
+                }`}
+                id={`nav-${item.label.toLowerCase().replace(/\s/g, '-')}`}
+              >
+                {isActive && (
+                  <span className="absolute inset-0 rounded-2xl bg-accent-amber/10 border border-accent-amber/15" />
+                )}
+                <Icon
+                  size={20}
+                  strokeWidth={isActive ? 2.5 : 1.8}
+                  className="relative z-10"
+                />
+                <span className={`relative z-10 text-[10px] font-semibold tracking-wide ${isActive ? '' : 'opacity-60'}`}>
+                  {item.label}
+                </span>
+              </Link>
+            );
+          })}
+        </div>
       </div>
     </nav>
   );

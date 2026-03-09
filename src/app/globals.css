@@ -90,18 +90,7 @@
     color: #faf5ff;
     min-height: 100vh;
     overflow-x: hidden;
-    /* Dog background image + gradient overlay */
-    background:
-      linear-gradient(135deg,
-        rgba(26, 16, 40, 0.82) 0%,
-        rgba(45, 27, 78, 0.75) 15%,
-        rgba(30, 42, 80, 0.78) 30%,
-        rgba(26, 48, 64, 0.80) 45%,
-        rgba(31, 32, 64, 0.78) 60%,
-        rgba(42, 21, 64, 0.80) 75%,
-        rgba(26, 16, 40, 0.85) 100%
-      ),
-      url('/hero-dogs.png') center/cover no-repeat fixed;
+    background: #1a1028;
   }
 
   /* ===== HERO Gradient Mesh ===== */
@@ -295,6 +284,6 @@
 /* Bottom nav spacing — outside @layer to override utilities */
 @media (max-width: 768px) {
   main {
-    padding-bottom: 100px !important;
+    padding-bottom: 120px !important;
   }
 }

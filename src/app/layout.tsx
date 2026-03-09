@@ -78,12 +78,28 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={`${outfit.className} antialiased`}>
-        <Header />
-        <GeoModal />
-        <main className="min-h-screen pt-0 md:pt-20">
-          {children}
-        </main>
-        <BottomNav />
+        {/* Fixed background image — works on all mobile browsers (CSS fixed bg doesn't work on iOS) */}
+        <div className="fixed inset-0 z-0 pointer-events-none" aria-hidden="true">
+          <img
+            src="/hero-dogs.png"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover opacity-20 sm:opacity-25"
+          />
+          {/* Gradient overlays for readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1a1028]/85 via-[#1a1028]/50 to-[#1a1028]/90" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#2d1b4e]/50 via-transparent to-[#1e2a50]/50" />
+          {/* Extra darkening on mobile for better text contrast */}
+          <div className="absolute inset-0 bg-[#1a1028]/20 sm:bg-transparent" />
+        </div>
+
+        <div className="relative z-10">
+          <Header />
+          <GeoModal />
+          <main className="min-h-screen pt-0 md:pt-16">
+            {children}
+          </main>
+          <BottomNav />
+        </div>
       </body>
     </html>
   );
