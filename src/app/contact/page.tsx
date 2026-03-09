@@ -1,6 +1,6 @@
 'use client';
 
-import { Phone, Mail, MapPin, Clock, MessageCircle, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, MessageCircle, Send, Heart, PawPrint } from 'lucide-react';
 
 export default function ContactPage() {
   return (
@@ -18,6 +18,64 @@ export default function ContactPage() {
           <p className="text-text-secondary max-w-lg mx-auto">
             Questions about services, availability, or just want to say hi? Drop us a line.
           </p>
+        </div>
+
+        {/* ===== ABOUT THE FOUNDERS ===== */}
+        <div className="glass-card p-6 md:p-8 mb-10 relative overflow-hidden" id="about-founders">
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-accent-amber/5 to-transparent pointer-events-none" />
+          <div className="relative z-10">
+            <div className="flex items-center gap-2 mb-4">
+              <Heart size={18} className="text-accent-coral" />
+              <span className="text-sm font-semibold tracking-widest uppercase text-accent-coral">Our Story</span>
+            </div>
+            <h2 className="text-2xl font-bold mb-5 md:text-3xl">
+              Meet the <span className="gradient-text">Paw Parents</span> Behind It All
+            </h2>
+
+            <div className="flex flex-col md:flex-row gap-6 md:gap-10">
+              {/* Founders Photo Placeholder */}
+              <div className="flex-shrink-0 mx-auto md:mx-0">
+                <div className="relative">
+                  <div className="h-40 w-40 rounded-2xl bg-gradient-to-br from-accent-amber/20 via-accent-coral/15 to-accent-violet/20 flex items-center justify-center border border-white/10">
+                    <div className="text-center">
+                      <PawPrint size={36} className="text-accent-amber mx-auto mb-2" />
+                      <div className="text-xs text-text-muted font-medium">Bishwas & Divya</div>
+                      <div className="text-[10px] text-text-muted">with Toodle & Rio</div>
+                    </div>
+                  </div>
+                  <div className="absolute -bottom-2 -right-2 text-2xl">🐾</div>
+                </div>
+              </div>
+
+              {/* Story */}
+              <div className="flex-1">
+                <p className="text-text-secondary leading-relaxed mb-4">
+                  <span className="font-bold text-text-primary">Bishwas Pattnaik</span> & <span className="font-bold text-text-primary">Divya Thawani</span> aren&apos;t
+                  just the founders of Guardians of Paws — they&apos;re proud paw parents to <span className="font-semibold text-accent-amber">Toodle</span>, their golden retriever with
+                  a heart of gold, and <span className="font-semibold text-accent-amber">Rio</span>, a pug whose snoring could drown out city traffic.
+                </p>
+                <p className="text-text-secondary leading-relaxed mb-4">
+                  The idea for Guardians of Paws was born from frustration, not ambition. Every time Bishwas and Divya
+                  had to leave Toodle and Rio at a grooming centre, the same worries crept in — <em className="text-accent-coral">were they
+                  truly comfortable? Was the place hygienic? Were they stressed, scared, or just sitting in a cage
+                  waiting for it to be over?</em> Too often, their babies came back anxious instead of happy.
+                </p>
+                <p className="text-text-secondary leading-relaxed mb-4">
+                  Both working in IT, they knew technology could solve what empathy alone couldn&apos;t. So they built what
+                  they wished had existed — a place where every pup is treated like their own, where hygiene is
+                  non-negotiable, where the BBMP paperwork is handled by AI, and where parents get real-time
+                  updates instead of radio silence.
+                </p>
+                <p className="text-text-primary leading-relaxed font-medium italic border-l-2 border-accent-amber/40 pl-4">
+                  &ldquo;We didn&apos;t start a business. We built the place we wished Toodle and Rio already had.
+                  Every paw that walks through our door gets the love we&apos;d want for our own.&rdquo;
+                </p>
+                <div className="mt-3 text-xs text-text-muted">
+                  — Bishwas & Divya, Founders & Paw Parents 🐾
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">
@@ -72,7 +130,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <div className="text-sm font-semibold">+91 98765 43210</div>
-                    <div className="text-xs text-text-muted">Mon-Sat, 8 AM – 7 PM</div>
+                    <div className="text-xs text-text-muted">Mon-Sat, 9 AM – 6 PM</div>
                   </div>
                 </a>
                 <a href="https://wa.me/919876543210" className="flex items-center gap-3 group">
@@ -97,35 +155,35 @@ export default function ContactPage() {
             </div>
 
             <div className="glass-card p-6">
-              <h3 className="font-bold text-lg mb-4">Visit Our Flagship Center</h3>
+              <h3 className="font-bold text-lg mb-4">Visit Us</h3>
               <div className="flex items-start gap-3 mb-4">
                 <MapPin size={18} className="text-accent-coral flex-shrink-0 mt-0.5" />
                 <div>
-                  <div className="text-sm font-semibold">42, 4th Cross Road</div>
-                  <div className="text-sm text-text-secondary">Koramangala 5th Block, Bangalore 560095</div>
+                  <div className="text-sm font-semibold">Kodathi Village</div>
+                  <div className="text-sm text-text-secondary">Sarjapur Road, Bangalore 560035</div>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Clock size={18} className="text-accent-amber flex-shrink-0 mt-0.5" />
                 <div className="text-sm">
                   <div className="font-semibold mb-1">Operating Hours</div>
-                  <div className="text-text-secondary">Mon – Sat: 8:00 AM – 7:00 PM</div>
-                  <div className="text-text-secondary">Sun: 9:00 AM – 6:00 PM</div>
+                  <div className="text-text-secondary">Mon – Sat: 9:00 AM – 6:00 PM</div>
+                  <div className="text-text-secondary">Sun: 10:00 AM – 4:00 PM</div>
                 </div>
               </div>
             </div>
 
-            {/* Map */}
+            {/* Map — Kodathi Village, Sarjapur */}
             <div className="glass-card overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5!2d77.6245!3d12.9352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU2JzA3LjIiTiA3N8KwMzcnMjguMiJF!5e0!3m2!1sen!2sin!4v1234567890!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.0!2d77.7!3d12.8850!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae738100000001%3A0x1!2sKodathi%20Village!5e0!3m2!1sen!2sin!4v1234567890!5m2!1sen!2sin"
                 width="100%"
                 height="200"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Guardians of Paws Location"
+                title="Guardians of Paws — Kodathi Village, Sarjapur"
                 className="opacity-80 hover:opacity-100 transition-opacity"
               />
             </div>
