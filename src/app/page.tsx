@@ -253,11 +253,11 @@ export default function HomePage() {
                     <div className="space-y-2 text-xs">
                       <div className="flex justify-between">
                         <span className="text-text-muted">Vaccinated</span>
-                        <span className="text-text-primary font-medium">15 Aug 2025</span>
+                        <span className="text-text-primary font-medium">15 Aug 2026</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-text-muted">Expires</span>
-                        <span className="text-accent-amber font-medium">15 Aug 2026</span>
+                        <span className="text-accent-amber font-medium">15 Aug 2027</span>
                       </div>
                       <div className="h-1.5 rounded-full bg-bg-tertiary mt-3">
                         <div className="h-1.5 rounded-full bg-accent-emerald w-3/4" />
@@ -352,7 +352,7 @@ export default function HomePage() {
               <Link href="/contact" className="hover:text-text-primary transition-colors">Contact</Link>
             </div>
             <div className="text-sm text-text-muted">
-              © 2025 Guardians of Paws. Made with 🐾 in Bangalore.
+              © 2026 Guardians of Paws. Made with 🐾 in Bangalore.
             </div>
           </div>
         </div>

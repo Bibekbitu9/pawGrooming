@@ -39,13 +39,13 @@ export async function extractRabiesVaccineDate(
 
   // Simulated result for development
   return {
-    vaccineDate: '2025-08-15',
+    vaccineDate: '2026-08-15',
     expiryDate: '2026-08-15',
     petName: 'Bruno',
     vaccineName: 'Anti-Rabies Vaccine (ARV)',
     confidence: 0.95,
     rawQueries: {
-      'rabies_vaccination_date': '2025-08-15',
+      'rabies_vaccination_date': '2026-08-15',
       'rabies_expiry_date': '2026-08-15',
       'pet_name': 'Bruno',
       'vaccine_name': 'Anti-Rabies Vaccine (ARV)',
@@ -69,8 +69,8 @@ export async function extractBBMPRegistration(
   console.log('[Textract Stub] Extracting BBMP registration info');
 
   return {
-    registrationNumber: 'BBMP/PET/2025/BLR/04521',
-    issueDate: '2025-06-01',
+    registrationNumber: 'BBMP/PET/2026/BLR/04521',
+    issueDate: '2026-06-01',
     expiryDate: '2026-05-31',
     petName: 'Bruno',
     confidence: 0.92,

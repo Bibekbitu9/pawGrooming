@@ -22,10 +22,10 @@ const sampleDocuments: Document[] = [
     id: '1',
     type: 'vaccination',
     fileName: 'rabies_certificate_bruno.pdf',
-    uploadDate: '2025-08-20',
+    uploadDate: '2026-08-20',
     status: 'verified',
     extractedData: {
-      vaccineDate: '2025-08-15',
+      vaccineDate: '2026-08-15',
       expiryDate: '2026-08-15',
       petName: 'Bruno',
     },
@@ -34,10 +34,10 @@ const sampleDocuments: Document[] = [
     id: '2',
     type: 'bbmp',
     fileName: 'bbmp_registration_bruno.pdf',
-    uploadDate: '2025-06-10',
+    uploadDate: '2026-06-10',
     status: 'verified',
     extractedData: {
-      registrationNumber: 'BBMP/PET/2025/BLR/04521',
+      registrationNumber: 'BBMP/PET/2026/BLR/04521',
       expiryDate: '2026-05-31',
       petName: 'Bruno',
     },
@@ -71,8 +71,8 @@ export default function PetVaultPage() {
                 ...d,
                 status: 'verified' as const,
                 extractedData: uploadType === 'vaccination'
-                  ? { vaccineDate: '2025-11-01', expiryDate: '2026-11-01', petName: 'Luna' }
-                  : { registrationNumber: 'BBMP/PET/2025/BLR/09932', expiryDate: '2026-10-31', petName: 'Luna' },
+                  ? { vaccineDate: '2026-11-01', expiryDate: '2027-11-01', petName: 'Luna' }
+                  : { registrationNumber: 'BBMP/PET/2026/BLR/09932', expiryDate: '2027-10-31', petName: 'Luna' },
               }
             : d
         )
