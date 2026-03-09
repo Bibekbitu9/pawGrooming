@@ -1,26 +1,300 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* Tailwind v4 theme — Warm, Dog-Friendly Palette */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Warm gradient base colors */
+  --color-bg-primary: #1a1028;
+  --color-bg-secondary: #221638;
+  --color-bg-tertiary: #2c1f42;
+  --color-glass-bg: rgba(40, 25, 60, 0.55);
+  --color-glass-border: rgba(255, 255, 255, 0.12);
+
+  /* Vibrant dog-friendly accent palette */
+  --color-accent-amber: #f0a030;
+  --color-accent-coral: #ff6b6b;
+  --color-accent-emerald: #36d399;
+  --color-accent-violet: #a78bfa;
+  --color-accent-sky: #38bdf8;
+  --color-accent-peach: #ffb088;
+  --color-accent-rose: #fb7185;
+  --color-accent-lavender: #c4b5fd;
+
+  /* Text */
+  --color-text-primary: #faf5ff;
+  --color-text-secondary: #c9b8e0;
+  --color-text-muted: #8b7aaa;
+
+  --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+
+  --animate-fade-up: fade-up 0.6s ease-out both;
+  --animate-slide-in: slide-in 0.5s ease-out both;
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  --animate-shimmer: shimmer 2s linear infinite;
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-paw-bounce: paw-bounce 0.6s ease-out;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Keyframes */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(-24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(240, 160, 48, 0.25); }
+  50% { box-shadow: 0 0 50px rgba(240, 160, 48, 0.45); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes paw-bounce {
+  0% { transform: scale(0.3) rotate(-15deg); opacity: 0; }
+  50% { transform: scale(1.1) rotate(5deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* All custom styles in @layer base so Tailwind utilities take priority */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: #faf5ff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    /* Dog background image + gradient overlay */
+    background:
+      linear-gradient(135deg,
+        rgba(26, 16, 40, 0.82) 0%,
+        rgba(45, 27, 78, 0.75) 15%,
+        rgba(30, 42, 80, 0.78) 30%,
+        rgba(26, 48, 64, 0.80) 45%,
+        rgba(31, 32, 64, 0.78) 60%,
+        rgba(42, 21, 64, 0.80) 75%,
+        rgba(26, 16, 40, 0.85) 100%
+      ),
+      url('/hero-dogs.png') center/cover no-repeat fixed;
+  }
+
+  /* ===== HERO Gradient Mesh ===== */
+  .hero-gradient {
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 40%, rgba(167, 139, 250, 0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 30%, rgba(240, 160, 48, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 40% at 50% 80%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse 70% 40% at 10% 90%, rgba(54, 211, 153, 0.08) 0%, transparent 50%);
+  }
+
+  /* ===== Glassmorphism Utilities ===== */
+  .glass-card {
+    background: rgba(40, 25, 65, 0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+  }
+
+  .glass-card-hover {
+    background: rgba(40, 25, 65, 0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-card-hover:hover {
+    background: rgba(50, 32, 80, 0.55);
+    border-color: rgba(240, 160, 48, 0.35);
+    box-shadow:
+      0 8px 32px rgba(240, 160, 48, 0.12),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
+    transform: translateY(-4px);
+  }
+
+  .glass-nav {
+    background: rgba(26, 16, 40, 0.82);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-header {
+    background: rgba(26, 16, 40, 0.78);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* ===== Section Gradient Accents ===== */
+  .section-glow-amber {
+    position: relative;
+  }
+  .section-glow-amber::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%; transform: translateX(-50%);
+    width: 50%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(240, 160, 48, 0.4), transparent);
+  }
+
+  .section-glow-violet {
+    position: relative;
+  }
+  .section-glow-violet::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%; transform: translateX(-50%);
+    width: 50%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.4), transparent);
+  }
+
+  .section-glow-emerald {
+    position: relative;
+  }
+  .section-glow-emerald::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%; transform: translateX(-50%);
+    width: 50%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(54, 211, 153, 0.4), transparent);
+  }
+
+  /* ===== Gradient Utilities ===== */
+  .gradient-text {
+    background: linear-gradient(135deg, #f0a030, #ff6b6b, #a78bfa);
+    background-size: 200% auto;
+    animation: gradient-shift 4s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-btn {
+    background: linear-gradient(135deg, #f0a030, #ff6b6b, #a78bfa);
+    background-size: 200% 100%;
+    animation: gradient-shift 3s ease infinite;
+    color: #1a1028;
+    font-weight: 700;
+    border: none;
+    border-radius: 14px;
+    padding: 14px 28px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(240, 160, 48, 0.25);
+  }
+
+  .gradient-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(240, 160, 48, 0.4);
+  }
+
+  .gradient-btn span {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===== Slot Grid ===== */
+  .slot-available {
+    background: rgba(40, 25, 65, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .slot-available:hover {
+    border-color: rgba(54, 211, 153, 0.5);
+    box-shadow: 0 4px 16px rgba(54, 211, 153, 0.15);
+    background: rgba(54, 211, 153, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .slot-selected {
+    background: rgba(54, 211, 153, 0.15);
+    border: 2px solid rgba(54, 211, 153, 0.5);
+    border-radius: 14px;
+    padding: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(54, 211, 153, 0.2);
+  }
+
+  .slot-blocked {
+    background: rgba(40, 25, 65, 0.25);
+    border: 1px solid rgba(255, 107, 107, 0.2);
+    border-radius: 14px;
+    padding: 16px;
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .slot-blocked::after {
+    content: '🍽️ Lunch Break';
+    display: block;
+    font-size: 0.75rem;
+    color: #ff6b6b;
+    margin-top: 4px;
+  }
+
+  /* ===== Scrollbar ===== */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(26, 16, 40, 0.5);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(167, 139, 250, 0.3);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(240, 160, 48, 0.5);
+  }
+
+  /* ===== Selection ===== */
+  ::selection {
+    background: rgba(167, 139, 250, 0.35);
+    color: #faf5ff;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Bottom nav spacing — outside @layer to override utilities */
+@media (max-width: 768px) {
+  main {
+    padding-bottom: 100px !important;
+  }
 }
